@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JSON and JavaScript Integration</title>
+<script type="text/javascript" src="Scripts/formsaver.js"></script>
+<script type="text/javascript" src="Scripts/menu.json"></script>
+<link rel="stylesheet" type="text/css" href="CSS/main.css">
+</head>
+
+<body>
+<div id="container" name="container">
+	<div id="header" name="header">
+		<div id="banner" name="banner"></div>
+		<div id="jqxMenu" name="menu"></div>
+	</div>
+<form id="personnelForm" name="personnelForm" onSubmit="return validatePersonnelForm()" method="post">
+  <p><label>JavaScript Fluency (Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays)</label>&nbsp;</p>
+  <table width="363" border="1">
+    <tbody>
+      <tr>
+        <td><label>First Name</label>&nbsp;</td>
+        <td><input type="text" name="fname" id="fname"></td>
+      </tr>
+	  <tr>
+        <td><label>Last Name</label>&nbsp;</td>
+        <td><input type="text" name="lname" id="lname"></td>
+      </tr>
+      <tr>
+        <td><label>Age</label></td>
+        <td><input type="number" name="age" id="age"></td>
+      </tr>
+      <tr>
+        <td><label>Gender</label></td>
+        <td><p>
+    <label>
+      <input type="radio" name="gender" value="male" id="gender_0">
+      Male</label>
+    
+    <label>
+      <input type="radio" name="gender" value="female" id="gender_1">
+      Female</label>
+    <br>
+  </p></td>
+      </tr>
+      <tr>
+        <td>Marital Status</td>
+        <td><label for="maritalstatus">Select:</label>
+          <select name="maritalstatus" id="maritalstatus">
+			 <option value="single">Single</option>
+  			 <option value="married">Married</option>
+         </select></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><input type="submit" name="submit" id="submit" value="Submit">
+        <input type="reset" name="reset" id="reset" value="Reset"></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <p>&nbsp;</p>
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CIT 261 - Fluency Demo Site</title>
+	<script type="text/javascript" src="Scripts/formsaver.js"></script>
+	<!-- Bootstrap -->
+    <link href="css/bootstrap-4.0.0.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+       <a class="navbar-brand" href="#">Navbar</a>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+             <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+             </li>
+             <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fluency Topics</a>
+				 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			     <a class="dropdown-item" href="formwithJS.html">Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays</a>
+			     </div>
+             </li>
+			  <li class="nav-item active">
+                <a class="nav-link" href="contact.html">Contact <span class="sr-only">(current)</span></a>
+             </li>
+             <!--
+             <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+             </li>-->
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+       </div>
+    </nav>
+
+    <div class="jumbotron jumbotron-fluid text-center">
+       <h1 class="display-4">Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays</h1>
+		<p class="lead">This page demonstrates fluency in the above topics. <br><b>Enter 5 entries!</b></p>
+       
+		<p>
+  
+<form action="#" id="personnelForm" name="personnelForm" method="post">
+  
+  <table align="center" width="363" border="1">
+    <tbody>
+      <tr>
+        <td><label>First Name</label>&nbsp;</td>
+        <td><input type="text" name="fname" id="fname"></td>
+      </tr>
+	  <tr>
+        <td><label>Last Name</label>&nbsp;</td>
+        <td><input type="text" name="lname" id="lname"></td>
+      </tr>
+      <tr>
+        <td><label>Age</label></td>
+        <td><input type="number" name="age" id="age"></td>
+		</tr>
+      <tr>
+        <td>Marital Status</td>
+        <td><label for="maritalstatus">Select:</label>
+          <select name="maritalstatus" id="maritalstatus">
+			 <option value="single" selected="selected">Single</option>
+  			 <option value="married">Married</option>
+         </select></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><input type="button" name="submit" id="submit" value="Submit" onClick="submitCatch()">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+</form>
+		</p>
+	  <div id="output">
+	  </div>
+       <br>
+       <hr>
+       <div class="row">
+          <div class="text-center col-lg-6 offset-lg-3">
+             <h4>Footer </h4>
+             <p>Copyright &copy; 2019 &middot; All Rights Reserved</p>
+          </div>
+       </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed --> 
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap-4.0.0.js"></script>
+  </body>
+</html>
