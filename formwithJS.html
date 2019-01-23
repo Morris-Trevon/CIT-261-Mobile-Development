@@ -62,20 +62,124 @@
 		<p class="lead"><strong>Literal Data Types</strong></p>
 		<p class="lead">Javascript variable initializing is simple compared to most programming languages. The first data type to enter that variable will decide the variables literal data type. This is important to note for you may want to add two numbers, so both variables must be of the same data type.</p>
 		<p class="lead"><strong>Common data types are:</strong> integer, floating point, and text/ string</p>
-		<h1 class="display-5">Functions and Parameters</h1>
-		<p class="lead">A function in Javascript is a segment of code reserved for a specified purpose or a number of related purposes. A function must be called or invoked by events, code, or automated. Functions are defined with the <strong>function</strong> keyword, followed by the <strong>name</strong> of the function,  parameter parantheses <strong>()</strong>, and then enclose the code in curly braces <strong>{}</strong>.See example below:</p>
-      <div class="alert"><p>function submitCatch() {<br>
+		<h1 class="display-4">Functions and Parameters</h1>
+		<p class="lead">A function in Javascript is a segment of code reserved for a specified purpose or a number of related purposes. A function must be called or invoked by events, code, or automated. Functions are defined with the <strong>function</strong> keyword, followed by the <strong>name</strong> of the function,  parameter parantheses <strong>()</strong>, and then enclose the code in curly braces <strong>{}</strong>. Function names follow the same rules as variables. See example below:</p>
+      <p><strong>function submitData() {</strong><br>
 	  //code to be executed<br>
-	  return false;		</p>
-      <p>} </p></div>
-        <p class="lead">&nbsp;</p>
-	  <p class="lead">&nbsp;</p>
-		<p class="lead"><br>
-	  <b>Enter 5 entries!</b></p>
-       
-		<p>
-  
-<form action="#" id="personnelForm" name="personnelForm" method="post">
+	  <strong>return false; </strong><br>
+	  // return statement exits the function</p>
+      <p><strong>} </strong></p>
+        <p class="lead">If you notice the return statement that will exit the function. If the statement above said true then the function is expected to send data to wherever it is called from. Functions can be called by a variable to return data into that variable eg. <strong>firstName=getFirstName();</strong> in that example the return statement would like <strong>return firstName;</strong> </p>
+	  <p class="lead">Functions are reusable and can accept and return values to different sources.</p>
+	  <p class="lead">The example below catches the input and sends it to a validator function:</p>
+	  <p class="lead">Once the variables are validated it is sent to another function to be processed. Note that the validator code can be placed into the same catch function. This is to demonstrate parameter passing from function to function.</p>
+	  <p>function submitCatch() {<br>
+	    <br>
+	    var fname = document.forms[&quot;personnelForm&quot;][&quot;fname&quot;].value;<br>
+	    var lname = document.forms[&quot;personnelForm&quot;][&quot;lname&quot;].value;<br>
+	    var age = document.forms[&quot;personnelForm&quot;][&quot;age&quot;].value;<br>
+	    var maritalvalue = document.getElementById(&quot;maritalstatus&quot;);<br>
+      var maritalstatus = maritalvalue.options[maritalvalue.selectedIndex].text;</p>
+	  <p> // Call validation function and passing variables</p>
+	  <p> validatePersonnelForm(fname, lname, age, maritalstatus); <strong>&lt;-- variables sent to validator</strong><br>
+      return false; </p>
+	  <p>}</p>
+	  <p>//validate form</p>
+	  <p>function validatePersonnelForm(fname, lname, age, maritalstatus) { <strong>&lt;-- Note the Parameters catching variables</strong><br>
+      </p>
+	  <p> if (fname === &quot;&quot; || lname === &quot;&quot; || age == 0 || maritalstatus === &quot;&quot;) { <strong>&lt;----- Conditional Statement</strong><br>
+	    alert(&quot;All fields must be filled in&quot;);<br>
+	    return false;<br>
+	    }<br>
+  <br>
+	    document.getElementById('output').innerHTML = '&lt;br&gt;'+fname+&quot; &quot;+lname+&quot; Welcome to our site.&quot;+&quot; So you are &quot;+maritalstatus+&quot;, below are some stars to celebrate your age.&lt;br&gt;&quot;; <strong>&lt;-- output</strong><br>
+  <br>
+  <br>
+	    //Conditional Statement to check if Single or Married print twice the stars if Married.<br>
+  <br>
+	    if(maritalstatus == &quot;Single&quot;){<br>
+  <br>
+	    //Single stars for loop<br>
+	    for(i=0; i &lt; age; i++){ <strong>&lt;---- For loop explantion below</strong></p>
+	  <p> // Write to DIV<br>
+	    document.getElementById('output').innerHTML += '*';<br>
+	    }<br>
+  <br>
+  <br>
+	    } else {<br>
+  <br>
+	    //Married Double Star loop<br>
+	    for(i=0; i &lt; age * 2; i++){<br>
+  <br>
+	    // Write to DIV<br>
+	    document.getElementById('output').innerHTML += '*';<br>
+	    }<br>
+  <br>
+	    }<br>
+  <br>
+	    dataStorage(fname, lname, age, maritalstatus);<br>
+  <br>
+	    return false;<br>
+	    }</p>
+	  <h1 class="display-4">Loops </h1>
+	  <p class="lead">In the above function you may have noticed a for loop. Loops are used to do a myriad of things, they repeat the same operation multiple times. Javascript can utilize multiple loops a. <strong>For Loop</strong> is the most popular and executes until a condition reaches false b. <strong>do while</strong> loop works the same as the for loop but only executes the statement once c. <strong>While loop</strong> checks the condition before the statement and runs while the statement is true and exits if false. See structure of all three below.</p>
+	  <p class="lead">For Loop</p>
+	  <p >for (initial expression; condition; increment expression;){ </p>
+	  <blockquote>statement's </blockquote>
+	  }
+	  <p class="lead">do while Loop</p>
+	  <p >do </p>
+	  <blockquote>statement's</blockquote>
+while (condition);
+	  <p class="lead">While Loop</p>
+	  <p >while (condition) </p>
+	  <blockquote>statement's</blockquote>
+		<h1 class="display-4">Conditional Statement</h1>
+		<p class="lead">Condition statements are used to run a block of code once. You can embed anything within a conditional statement as long as you want that code to run once. There are 3 types of conditional statements 1. <strong>if statement</strong> runs the code once based on the condition, 2. <strong>if else statement</strong> runs one of two scenarios one statment if true and the other if false 3. <strong>switch statement</strong> runs through a number of scenario to see if a value matches. You can also nest if else statments to run multiple scenarios that will execute only once this is called <strong>else if</strong>.</p>
+		<p class="lead"><strong>if statement</strong></p>
+		<p class="lead">if (<em>condition</em>) {<br>
+  //<em>  block of code to be executed if the condition is true<br>
+</em>} </p>
+		<p class="lead"><strong>if else statement</strong></p>
+		<p class="lead">if (<em>condition</em>) {<br>
+  //<em>  block of code to be executed if the condition is true<br>
+</em>}  else { <br>
+  //<em>  block of code to be executed if the condition is false<br>
+</em>}</p>
+		<p class="lead"><strong>else if statment / nested if statement</strong></p>
+		<p class="lead">if (<em>condition1</em>) {<br>
+  //<em>  block of code to be executed if condition1 is true<br>
+</em>}  else if (<em>condition2</em>) {<br>
+  //<em>  block of code to be executed if the condition1 is false and condition2 is true</em><br>
+} else {<br>
+  //<em>  block of code to be executed if the condition1 is false and condition2 is false<br>
+</em>}</p>
+		<p class="lead"><strong>switch statement</strong></p>
+		<p class="lead">switch(<em>expression</em>) {<br>
+  case <em>x</em>:<br>
+<em>    // code block<br>
+</em>    break;<br>
+  case <em>y</em>:<br>
+<em>    // code block<br>
+</em>    break;<br>
+  default:<br>
+    // <em>code block</em><br>
+} </p>
+		<h1 class="display-4">Arrays and Associative Array</h1>
+		<p class="lead">Arrays are special variable or objects used to store multiple values of the same data type. Example below:</p>
+		<p class="lead">var cars = ["Saab", "Volvo", "BMW"];</p>
+		<p class="lead">Array values can be referenced and changed based on their address called the index. which starts from 0.</p>
+	  <p class="lead">var favCar = cars[0]; <strong>// This would assign Saab into the variable called favCar</strong></p>
+		<p class="lead">document.getElementById("demo").innerHTML = cars[0]; <strong>// This would output Saab to the page</strong></p>
+		<p class="lead">You can also access the full array by simply outputting the array name with no address.</p>
+		<p class="lead">Arrays can do mathematical calculations against itself and store its answer within itself. They are very flexible and can be used as a method of temporary storage for multiple values</p>
+		<h1 class="display-4">Associative Arrays</h1>
+		<p class="lead">These arrays are special in that you can name the index, but they are not supported in Javascript. Javascript only supports numbered index.</p>
+		<p class="lead">person["firstName"] = "John";</p>
+		<p class="lead">Javascript will not retain the name and revert to numbered index.</p>
+		<p class="lead">The below program utilizes all the techniques above. It accepts 5 entries validates if you entered something or not. Uses the for loop to print your age if your single and uses another for loop to print your age twice in stars the for loops are nested into an if else statement. The values are stored into arrays and and if statement checks if five entry has entered the array. It then removes the form to prevent additional entry and print all entries. For a clean page of this form click this <a href="formwithJS2.html">link</a>.<br>
+		  <b>Enter 5 entries!</b></p>
+	  <form action="#" id="personnelForm" name="personnelForm" method="post">
   
   <table align="center" width="363" border="1">
     <tbody>
