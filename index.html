@@ -8,9 +8,16 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap-4.0.0.css" rel="stylesheet">
-
+	<link rel="import" href="nav.html">
+	
   </head>
   <body>
+	  <script>
+	  	var link = document.querySelector('link[rel="import"]');
+    	var content = link.import;
+		document.body.appendChild(content.cloneNode(true));
+		  document.getElementById('navbar').innerHTML()= content;
+	  </script>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
        <a class="navbar-brand" href="#">Navbar</a>
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +52,10 @@
     <div class="jumbotron jumbotron-fluid text-center">
        <h1 class="display-4">CIT 261 Fluency Project Area</h1>
        <p class="lead">This page is dedicated to all projects studied and coded by Trevon Morris for CIT 261.</p>
-       <p class="lead">Fluency topic: <a href="formwithJS.html">Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays</a></p>
+       <p class="lead">Fluency topics:</p>
+       <p class="lead"> <a href="formwithJS.html">Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays</a></p>
+       <p class="lead"><a href="jsonparsestringify.html">JSON Parse, Stringify</a></p>
+       <p class="lead">&nbsp;</p>
        <hr class="my-4">
        <p>If for any reason you may need to contact me, click the link below.</p>
        <p class="lead">
