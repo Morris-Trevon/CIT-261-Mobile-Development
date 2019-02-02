@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CIT 261 - Fluency Demo Site</title>
+	<script type="text/javascript" src="Scripts/objectDemo.js"></script>
+	<!-- Bootstrap -->
+    <link href="css/bootstrap-4.0.0.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+       <a class="navbar-brand" href="#">Navbar</a>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+             <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+             </li>
+             <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fluency Topics</a>
+				 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			     <a class="dropdown-item" href="formwithJS.html">Object Creation Functions, Inheritance, Properties, Methods, Instantiation</a>
+			     </div>
+             </li>
+			  <li class="nav-item active">
+                <a class="nav-link" href="contact.html">Contact <span class="sr-only">(current)</span></a>
+             </li>
+             <!--
+             <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+             </li>-->
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+       </div>
+    </nav>
+
+    <div class="jumbotron jumbotron-fluid text-center">
+      <h1 class="display-4">Object Creation Functions, Inheritance, Properties, Methods, Instantiation</h1>
+		<p class="lead">This page demonstrates fluency in the above topics. </p>
+		<p class="lead">In the code below we are capturing time, but we not only want to catch it we want to also tell it. in real time.</p>
+		<h1>Properties, Methods, Object Creation Functions</h1>
+		
+	  <p>function checkTime(){<br>
+		  <br>
+		  <strong>// Array with months to convert numeral months </strong><br>
+		  var months = [&quot;January&quot;, &quot;February&quot;, &quot;March&quot;, &quot;April&quot;, &quot;May&quot;, &quot;June&quot;,<br>
+  &quot;July&quot;, &quot;August&quot;, &quot;September&quot;, &quot;October&quot;, &quot;November&quot;, &quot;December&quot;];</p>
+	  <p><strong>//Create a date object using the object Date Constructor method. You can use this method to create any object eg. [var user = new Object();]</strong></p>
+	  <p><strong>//For this example we are using the Date object which has many properties in function format</strong><br>
+		  var today = new Date();</p>
+		<p><strong>//Create an Object called time </strong><br>
+		  var time = {<br>
+	  <strong>//Properties of the Object.</strong><strong> We are also Using the getSeconds(), getMinute(), getMonth(), getFullYear(), etc methods </strong><br>
+	    <strong>//by appending to today Date object so we can get the correct date</strong><br>
+	    year	: today.getFullYear(),<br>
+	    day		: today.getDay(),<br>
+	    month 	: today.getMonth(),<br>
+	    hours	: today.getHours(),<br>
+      <strong>//Functions of the Object will add a 0 before single digit numbers for uniformity<br>
+      //Using object functions allow for complex calculations to be done within the object
+      </strong><br>
+	    minutes	: function(){<br>
+  <br>
+	    if(today.getMinutes() &lt; 10) {<br>
+	    return &quot;0&quot;+today.getMinutes();<br>
+	    }else{<br>
+	    return today.getMinutes();<br>
+	    }<br>
+  <br>
+	    },<br>
+	    seconds	: function(){<br>
+  <br>
+	  if(today.getSeconds() &lt; 10) {</p>
+		<p>		  return &quot;0&quot;+today.getSeconds(); <br>
+		  }else{<br>
+		  return today.getSeconds();<br>
+		  }<br>
+  <br>
+		  },<br>
+		  milliSeconds : today.getMilliseconds()<br>
+  <br>
+	  };</p>
+		<p><strong>//We now print out the time object </strong></p>
+		<p>document.getElementById('output').innerHTML = &quot;Time: &quot;+months[time.month]+&quot; &quot;+time.day+&quot;, &quot;+time.year+&quot;, &quot;+time.hours+&quot;:&quot;+time.minutes()+&quot;:&quot;+time.seconds();<br>
+      <strong>//To tell the time in realtime we use the setTimeout method which takes two parameters setTimeout([functionName],[resetTime]</strong></p>
+	  <p>var timeReset = setTimeout(checkTime, 500);<br>
+		  <strong>//We can also return the time object to be used by another object if necessary while resetting this function without any issues</strong><br>
+		  return time;<br>
+	  }</p>
+		<p class="lead"><strong>// Try it out by clicking the button below</strong></p>
+       
+		<p>
+	      <button onclick="checkTime()"  >Click Me To Parse Code!</button> 
+	  </p>
+	  <div id="output">
+	  </div>
+	  <h1>Inheritance using Object.create() Function</h1>
+		<p>function birthday(carName){<br>
+		  <br>
+		  <strong>// Array with months to convert numeral months </strong><br>
+		  var months = [&quot;January&quot;, &quot;February&quot;, &quot;March&quot;, &quot;April&quot;, &quot;May&quot;, &quot;June&quot;, &quot;July&quot;, &quot;August&quot;, &quot;September&quot;, &quot;October&quot;, &quot;November&quot;, &quot;December&quot;];<br>
+  <br>
+		  <strong>//Inherit the time object so the functions still work from the  object that was passed from checkTime()</strong><br>
+		  var time2 = Object.create(checkTime()); <br>
+  <br>
+		  <strong>//Capture the carname to create an ID</strong><br>
+		  var carID = carName;<br>
+  <br>
+		  <strong>//This variable will print the stored values</strong><br>
+		  var displayStorage = ''; <br>
+  <br>
+  <strong>//The time object is now an exact copy of the time object in the checkTime function above.</strong><br>
+  <br>
+		  <strong>//So in this example we use a different object creation called literal which allows us to clearly assign to each on the fly.<br>
+		  //We are trying to catch the time as the item is brought over in a static format for storage in our localStorage</strong><br>
+		  var orderTime = {};<br>
+		  orderTime.year = time2.year;<br>
+		  orderTime.month = months[time2.month];<br>
+		  orderTime.day = time2.day;<br>
+		  orderTime.hours = time2.hours<br>
+		  orderTime.minutes = time2.minutes();<br>
+		  orderTime.seconds = time2.seconds();<br>
+  <br>
+		  <strong>//To save all the Orders that come in we will simple use localStorage for this demo which takes two strings localSTorage.setItem([keyName],[dataToBeStored])<br>
+		  //Since we are storing the orderTime we use the JSON.stringify() to convert to string and store. We can always parse it back into an object later.
+		  </strong><br>
+		  if(localStorage.getItem(carID) === null){<br>
+		  localStorage.setItem(carID,JSON.stringify(orderTime));<br>
+		  }else{<br>
+		  loop++;<br>
+		  carID=carID+&quot;_&quot;+loop;<br>
+		  localStorage.setItem(carID,JSON.stringify(orderTime));<br>
+		  }<br>
+  <br>
+		  //We can then access the stored item by name<br>
+  <br>
+		  document.getElementById('output2').innerHTML = &quot;You Ordered the Exotic: &quot; + carName + &quot;&lt;br&gt;&lt;br&gt; On: &quot; + orderTime.month+&quot; &quot;+orderTime.day+&quot;, &quot;+orderTime.year+&quot;, &quot;+orderTime.hours+&quot;:&quot;+orderTime.minutes+&quot;:&quot;+orderTime.seconds+&quot;&lt;br&gt; Your Order ID is: &lt;b&gt;&quot;+ carID+&quot;&lt;/b&gt;&quot;;<br>
+  <br>
+		  //Display all that is stored in localStorage </p>
+		<p> for (var key in localStorage) {<br>
+		  <br>
+		  if(key === &quot;key&quot; || key === &quot;getItem&quot; || key === &quot;setItem&quot; || key === &quot;removeItem&quot; || key === &quot;clear&quot;){<br>
+		  //do nothing<br>
+		  }else{<br>
+		  displayStorage = displayStorage+(key + ':' +localStorage[key])+'&lt;br&gt;';<br>
+		  }<br>
+		  }<br>
+  <br>
+		  document.getElementById('output2').innerHTML += &quot;&lt;br&gt;&lt;br&gt;&lt;br&gt;&quot;+displayStorage;<br>
+  <br>
+		  return false;<br>
+	  }</p>
+		<p><strong>//So go ahead click the Order on each car it will store multiple copies and print what is stored. Click this button to clear it and reload session.</strong>
+		  <button onclick="clearLocalStorage()"  >Clear localStorage!</button> 
+	  </p>
+		
+	  <div class="carmart">
+
+		<h1>The Exotic Car Order System</h1>
+		
+		<div class="cars" id="bugatti" name="bugatti"><p>Bugatti</p><img alt="bugatti" src="images/cars/bugatti.png"><button onclick="birthday('Bugatti')"  >Order</button> </div>
+		<div class="cars" id="ferrari" name="ferrari"><p>Ferrari</p><img alt="ferrari" src="images/cars/ferrari.png"><button onclick="birthday('Ferrari')"  >Order</button> </div>
+		<div class="cars" id="porsche" name="porsche"><p>Porsche</p><img alt="porsche" src="images/cars/porsche.png"><button onclick="birthday('Porsche')"  >Order</button> </div>
+		<div class="cars" id="benz" name="benz"><p>Benz</p><img alt="benz" src="images/cars/benz.png"><button onclick="birthday('Benz')"  >Order</button> </div>
+			
+		</div>
+		
+		<div id="output2"> </div>
+		
+        <p>In the Above demo we could have collected the name, birthdate, and payment information, and stored all those details for processing. We would have used more secure means to do this, but for this demo we can keep it simple with localStorage which persists across the domain. Which means we could pull that object from another page for further processing. However, this is intended for object demonstrations and not storage. So let us move on!</p>
+        <h1>Instantiation</h1>
+        <p><strong>This is the final demonstration of this topic which comes in three types Functional, Prototypal, and psuedo classical</strong></p>
+        <p><strong>Functional example</strong></p>
+        <p>function unRavelStorage(){<br>
+          <strong>// declare all variables</strong><br>
+var carID = document.getElementById('carID').value;<br>
+var carColorPicker = document.getElementById(&quot;carColorPicker&quot;);<br>
+var carColor = carColorPicker.options[carColorPicker.selectedIndex].text;<br>
+<strong>// Here is where we retrieve the information for reuse</strong><br>
+var getCar = localStorage.getItem(carID);<br>
+          var retrievedCar = JSON.parse(getCar);<br>
+      </p>
+        <p><strong>//validate the CarID </strong><br>
+          if (carID === &quot;&quot;) {<br>
+          alert(&quot;Please Enter the Car ID&quot;);<br>
+          return false;<br>
+          }<br>
+          <br>
+          <strong>//Instantiate an Object with Functional method, which allows you to pass variables to the Object</strong><br>
+          var carColorHolder = function(carModel, carColor, carID) {<br>
+  <br>
+          <strong>//Create an empty object that will allow you tocreate properties</strong><br>
+          var car = { };<br>
+  <br>
+          <strong>//Create the properties needed to collect data<br>
+          //object.key = value </strong><br>
+          car.carModel = carModel;<br>
+          car.carColor = carColor;<br>
+          car.carID = carID;</p>
+        <p><strong>//This function can be called to query the color</strong> <br>
+          car.whatColor=function(){<br>
+          return this.carCOlor;<br>
+      }</p>
+        <p> return car;<br>
+          }<br>
+  <br>
+          <strong>//You can now call the object like a function and pass values to it</strong><br>
+          var finalCarOrder = carColorHolder(retrievedCar.carModel,carColor,carID);<br>
+  <br>
+          <strong>//If successful the values should now be in finalCarOrder and which now has the object car</strong><br>
+          document.getElementById('output3').innerHTML += &quot;&lt;br&gt;&lt;br&gt;&quot;+&quot;Your &quot;+finalCarOrder.carColor+&quot; &quot;+finalCarOrder.carModel+&quot; with carID of: &quot;+finalCarOrder.carID+&quot;&lt;br&gt;Is ready for pickup!&quot;;<br>
+  <br>
+          return false;<br>
+          }<br>
+        </p>
+        <p><strong>So let us pull one of the stored objects above. Choose a color for it as well. Please ensure you clicked a car at least once and noted the ID</strong></p>
+		
+	  
+  			CarID: <input type="text" id="carID" name="carID"><br>
+		    Choose Color: <select name="carColorPicker" id="carColorPicker">
+					 <option value="red" selected="selected">red</option>
+					 <option value="blue">blue</option>
+		  			 <option value="black">black</option>
+         		   </select><br>
+ 		  <input type="submit" value="Retrieve Car Id" onClick="unRavelStorage()">
+		
+		
+		<p></p>
+		
+	  <div id="output3"> </div>
+		
+		<p>Customer needs to change the color again, let's use prototypal Objects instead</p>
+		<p>function unRavelStorage2(){<br>
+          <strong>//declare variables in the same manner as before</strong><br>
+var carID = document.getElementById('carID2').value;<br>
+var carColorPicker2 = document.getElementById(&quot;carColorPicker2&quot;);<br>
+var carColor = carColorPicker2.options[carColorPicker2.selectedIndex].text;</p>
+		<p><strong>//pull the item out of Storage in the same manner</strong><br>
+		  var getCar = localStorage.getItem(carID);<br>
+		  var retrievedCar = JSON.parse(getCar);<br>
+  //validate just the same<br>
+		  if (carID === &quot;&quot;) {<br>
+		  alert(&quot;Please Enter the Car ID&quot;);<br>
+		  return false;<br>
+		  }<br>
+  <br>
+  <br>
+		  <strong>//Instantiate an Object with Prototype method instead and here is where things get different</strong><br>
+		  var carColorHolder = function(carModel, carColor, carID) {<br>
+  <br>
+		  <strong>//Create an empty object using Object.create()</strong><br>
+		  var car = Object.create(carColorHolder.prototype);<br>
+  <br>
+		  <strong>//Create the properties needed to collect data<br>
+		  //object.key = value </strong><br>
+		  car.carModel = carModel;<br>
+		  car.carColor = carColor;<br>
+		  car.carID = carID;</p>
+		<p> return car;<br>
+		  }<br>
+  </p>
+		<p><strong>//The carColorHolder.prototype can be used outside the object to create functions</strong><br>
+		  carColorHolder.prototype.whatModel = function(){<br>
+		  return this.carModel;<br>
+		  }<br>
+  <br>
+		  <strong>//You can now call the object like a function and pass values to it the same as before</strong><br>
+		  var finalCarOrder2 = carColorHolder(retrievedCar.carModel,carColor,carID);<br>
+  <br>
+		  <strong>//If successful the values should now be in finalCarOrder2 lets use the METHOD toUpperCase to display color this time.</strong><br>
+		  document.getElementById('output4').innerHTML = &quot;&lt;br&gt;&lt;br&gt;&quot;+&quot;Your &quot;+finalCarOrder2.carColor.toUpperCase()+&quot; &quot;+finalCarOrder2.whatModel()+&quot; with carID of: &quot;+finalCarOrder2.carID+&quot;&lt;br&gt;Is ready for pickup!&quot;;<br>
+  <br>
+		  <strong>// Our prototype object  works and all is well</strong><br>
+		  return finalCarOrder2;<br>
+	  }</p>
+		
+		CarID: <input type="text" id="carID2" name="carID2"><br>
+		    Choose Color: <select name="carColorPicker2" id="carColorPicker2">
+					 <option value="red" selected="selected">red</option>
+					 <option value="blue">blue</option>
+		  			 <option value="black">black</option>
+         		   </select><br>
+	  <input type="submit" value="Retrieve Car Id 2" onClick="unRavelStorage2()">
+		
+	  <div id="output4"> </div>
+		
+		<p>&nbsp;</p>
+		<p><strong>Still not right, maybe we can get the color right with Psuedo Classical Objects instead</strong></p>
+		<p>function unRavelStorage3(){<br>
+          <strong>// declare variables the same</strong><br>
+var carID = document.getElementById('carID3').value;<br>
+var carColorPicker3 = document.getElementById(&quot;carColorPicker3&quot;);<br>
+var carColor = carColorPicker3.options[carColorPicker3.selectedIndex].text;</p>
+		<p><strong>//retrieve from storage the same</strong><br>
+		  var getCar = localStorage.getItem(carID);<br>
+		  var retrievedCar = JSON.parse(getCar);<br>
+          <strong>//validate the same way</strong><br>
+		  if (carID === &quot;&quot;) {<br>
+		  alert(&quot;Please Enter the Car ID&quot;);<br>
+		  return false;<br>
+		  }<br>
+  <br>
+  <br>
+		  <strong>//Instantiate an Object with Psuedo Classical method here is where the differences are</strong><br>
+		  var carColorHolder3 = function(carModel, carColor, carID) {<br>
+  <br>
+		  <strong>//The Compiler creates the line below for you<br>
+		  //var car = Object.create(carColorHolder.prototype);</strong><br>
+  <br>
+		  <strong>//Create the properties needed to collect data as usual but use [this] insted<br>
+		  //this.key = value </strong><br>
+		  this.carModel = carModel;<br>
+		  this.carColor = carColor;<br>
+		  this.carID = carID;<br>
+  <br>
+		  <strong>//the return statement also is created automatically so no need to add one<br>
+		  //return car;</strong><br>
+		  }<br>
+  <br>
+		  <strong>//You can use the prototype function without worry and it still works.</strong><br>
+		  carColorHolder3.prototype.whatModel = function(){<br>
+		  return this.carModel;<br>
+		  }<br>
+  <br>
+		  <strong>//You can now call the object with new as if creating an Object which is different from the last two</strong><br>
+		  var finalCarOrder3 = new carColorHolder3(retrievedCar.carModel,carColor,carID);<br>
+  <br>
+		  <strong>//If successful the values should now be in finalCarOrder2 lets use the METHOD toUpperCase twice to display color and model this time.</strong><br>
+		  document.getElementById('output5').innerHTML = &quot;&lt;br&gt;&lt;br&gt;&quot;+&quot;Your &quot;+finalCarOrder3.carColor.toUpperCase()+&quot; &quot;+finalCarOrder3.whatModel().toUpperCase()+&quot; with carID of: &quot;+finalCarOrder3.carID+&quot;&lt;br&gt;Is ready for pickup!&quot;;<br>
+  <br>
+		  <strong>// Our psuedo classical object works and all is well</strong><br>
+		  return finalCarOrder3;<br>
+		  }</p>
+		
+		CarID: <input type="text" id="carID3" name="carID3"><br>
+		    Choose Color: <select name="carColorPicker3" id="carColorPicker3">
+					 <option value="red" selected="selected">red</option>
+					 <option value="blue">blue</option>
+		  			 <option value="black">black</option>
+         		   </select><br>
+	  <input type="submit" value="Retrieve Car Id 3" onClick="unRavelStorage3()">
+		
+	  <div id="output5"> </div>
+		<p>&nbsp; </p>
+		<p>For this demo without the writeup click <a href="objectTimeCalc2.html">here</a></p>
+       <hr>
+      <div class="row">
+          <div class="text-center col-lg-6 offset-lg-3">
+             <h4>Footer </h4>
+             <p>Copyright &copy; 2019 &middot; All Rights Reserved</p>
+          </div>
+       </div>
+       
+    </div>
+
+	   
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed --> 
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap-4.0.0.js"></script>
+  </body>
+</html>

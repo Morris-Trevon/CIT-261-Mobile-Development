@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CIT 261 - Fluency Demo Site</title>
+	<script type="text/javascript" src="Scripts/objectDemo.js"></script>
+	<!-- Bootstrap -->
+    <link href="css/bootstrap-4.0.0.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+       <a class="navbar-brand" href="#">Navbar</a>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+             <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+             </li>
+             <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fluency Topics</a>
+				 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			     <a class="dropdown-item" href="formwithJS.html">Object Creation Functions, Inheritance, Properties, Methods, Instantiation</a>
+			     </div>
+             </li>
+			  <li class="nav-item active">
+                <a class="nav-link" href="contact.html">Contact <span class="sr-only">(current)</span></a>
+             </li>
+             <!--
+             <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+             </li>-->
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+       </div>
+    </nav>
+
+    <div class="jumbotron jumbotron-fluid text-center">
+      <h1 class="display-4">Object Creation Functions, Inheritance, Properties, Methods, Instantiation</h1>
+		<p class="lead">This page demonstrates fluency in the above topics. </p>
+		<p class="lead">In the code below we are capturing time, but we not only want to catch it we want to also tell it. in real time.</p>
+		<h1>Properties, Methods, Object Creation Functions</h1>
+		
+	  <p>&nbsp;</p>
+		<p class="lead"><strong>// Start the object Clock</strong></p>
+       
+		<p>
+	      <button onclick="checkTime()"  >Click Me To Parse Code!</button> 
+	  </p>
+	  <div id="output">
+	  </div>
+	  <h1>Inheritance using Object.create() Function</h1>
+		<p><strong>//So go ahead click the Order on each car it will store multiple copies and print what is stored. Click this button to clear it and reload session.</strong>
+		  <button onclick="clearLocalStorage()"  >Clear localStorage!</button> 
+	    </p>
+		
+	  <div class="carmart">
+
+		<h1>The Exotic Car Order System</h1>
+		
+		<div class="cars" id="bugatti" name="bugatti"><p>Bugatti</p><img alt="bugatti" src="images/cars/bugatti.png"><button onclick="birthday('Bugatti')"  >Order</button> </div>
+		<div class="cars" id="ferrari" name="ferrari"><p>Ferrari</p><img alt="ferrari" src="images/cars/ferrari.png"><button onclick="birthday('Ferrari')"  >Order</button> </div>
+		<div class="cars" id="porsche" name="porsche"><p>Porsche</p><img alt="porsche" src="images/cars/porsche.png"><button onclick="birthday('Porsche')"  >Order</button> </div>
+		<div class="cars" id="benz" name="benz"><p>Benz</p><img alt="benz" src="images/cars/benz.png"><button onclick="birthday('Benz')"  >Order</button> </div>
+			
+		</div>
+		
+		<div id="output2"> </div>
+		
+        <p>In the Above demo we could have collected the name, birthdate, and payment information, and stored all those details for processing. We would have used more secure means to do this, but for this demo we can keep it simple with localStorage which persists across the domain. Which means we could pull that object from another page for further processing. However, this is intended for object demonstrations and not storage. So let us move on!</p>
+        <h1>Instantiation</h1>
+        <p><strong>This is the final demonstration of this topic which comes in three types Functional, Prototypal, and psuedo classical</strong></p>
+        <p>&nbsp;</p>
+        <p><strong>So let us pull one of the stored objects above. Choose a color for it as well. Please ensure you clicked a car at least once and noted the ID</strong></p>
+		
+	  
+  			CarID: <input type="text" id="carID" name="carID"><br>
+		    Choose Color: <select name="carColorPicker" id="carColorPicker">
+					 <option value="red" selected="selected">red</option>
+					 <option value="blue">blue</option>
+		  			 <option value="black">black</option>
+         		   </select><br>
+ 		  <input type="submit" value="Retrieve Car Id" onClick="unRavelStorage()">
+		
+		
+		<p></p>
+		
+	  <div id="output3"> </div>
+		
+		<p><strong>Customer needs to change the color again, let's use prototypal Objects instead</strong></p>
+	  <p>CarID:
+<input type="text" id="carID2" name="carID2"><br>
+		    Choose Color: 
+		    <select name="carColorPicker2" id="carColorPicker2">
+		      <option value="red" selected="selected">red</option>
+		      <option value="blue">blue</option>
+		      <option value="black">black</option>
+        </select>
+		    <br>
+	  <input type="submit" value="Retrieve Car Id 2" onClick="unRavelStorage2()">
+	  </p>
+	  <div id="output4"> </div>
+		
+		<p><strong>Still not right, maybe we can get the color right with Psuedo Classical Objects instead</strong></p>
+	  <p>CarID:
+<input type="text" id="carID3" name="carID3"><br>
+		    Choose Color: 
+		    <select name="carColorPicker3" id="carColorPicker3">
+		      <option value="red" selected="selected">red</option>
+		      <option value="blue">blue</option>
+		      <option value="black">black</option>
+        </select>
+		    <br>
+	  <input type="submit" value="Retrieve Car Id 3" onClick="unRavelStorage3()">
+	  </p>
+	  <div id="output5"> </div>
+		<p>&nbsp;</p>
+       <hr>
+      <div class="row">
+          <div class="text-center col-lg-6 offset-lg-3">
+             <h4>Footer </h4>
+             <p>Copyright &copy; 2019 &middot; All Rights Reserved</p>
+          </div>
+       </div>
+       
+    </div>
+
+	   
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed --> 
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap-4.0.0.js"></script>
+  </body>
+</html>
