@@ -1,3 +1,5 @@
+
+
 /*!
  * Bootstrap v4.0.0 (https://getbootstrap.com)
  * Copyright 2011-2018 The Bootstrap Authors
@@ -113,30 +115,6 @@ abbr[data-original-title] {
   border-bottom: 0;
 }
 
-.carmart{
-	width: 100%;
-	max-height: 500px;
-	margin-bottom: 50px;
-	text-align: center;
-	display: inline-block;
-		
-}
-
-.cars {
-	
-	max-width: 20%;
-	max-height: auto;
-	margin-right: 10px;
-	display:inline-block;
-}
-
-.cars img{
-	
-	max-width: 100%;
-	max-height: auto;
-	padding: 5px;
-	
-}
 
 address {
   margin-bottom: 1rem;

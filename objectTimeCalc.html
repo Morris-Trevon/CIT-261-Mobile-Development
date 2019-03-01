@@ -177,7 +177,7 @@
 		
         <p>In the Above demo we could have collected the name, birthdate, and payment information, and stored all those details for processing. We would have used more secure means to do this, but for this demo we can keep it simple with localStorage which persists across the domain. Which means we could pull that object from another page for further processing. However, this is intended for object demonstrations and not storage. So let us move on!</p>
         <h1>Instantiation</h1>
-        <p><strong>This is the final demonstration of this topic which comes in three types Functional, Prototypal, and psuedo classical</strong></p>
+        <p><strong>This is the final demonstration of this topic which comes in three types Functional, Prototypal, and Pseudo classical</strong></p>
         <p><strong>Functional example</strong></p>
         <p>function unRavelStorage(){<br>
           <strong>// declare all variables</strong><br>
@@ -293,7 +293,7 @@ var carColor = carColorPicker2.options[carColorPicker2.selectedIndex].text;</p>
 	  <div id="output4"> </div>
 		
 		<p>&nbsp;</p>
-		<p><strong>Still not right, maybe we can get the color right with Psuedo Classical Objects instead</strong></p>
+		<p><strong>Still not right, maybe we can get the color right with Pseudo Classical Objects instead</strong></p>
 		<p>function unRavelStorage3(){<br>
           <strong>// declare variables the same</strong><br>
 var carID = document.getElementById('carID3').value;<br>
@@ -309,7 +309,7 @@ var carColor = carColorPicker3.options[carColorPicker3.selectedIndex].text;</p>
 		  }<br>
   <br>
   <br>
-		  <strong>//Instantiate an Object with Psuedo Classical method here is where the differences are</strong><br>
+		  <strong>//Instantiate an Object with Pseudo Classical method here is where the differences are</strong><br>
 		  var carColorHolder3 = function(carModel, carColor, carID) {<br>
   <br>
 		  <strong>//The Compiler creates the line below for you<br>
@@ -336,7 +336,7 @@ var carColor = carColorPicker3.options[carColorPicker3.selectedIndex].text;</p>
 		  <strong>//If successful the values should now be in finalCarOrder2 lets use the METHOD toUpperCase twice to display color and model this time.</strong><br>
 		  document.getElementById('output5').innerHTML = &quot;&lt;br&gt;&lt;br&gt;&quot;+&quot;Your &quot;+finalCarOrder3.carColor.toUpperCase()+&quot; &quot;+finalCarOrder3.whatModel().toUpperCase()+&quot; with carID of: &quot;+finalCarOrder3.carID+&quot;&lt;br&gt;Is ready for pickup!&quot;;<br>
   <br>
-		  <strong>// Our psuedo classical object works and all is well</strong><br>
+		  <strong>// Our Pseudo classical object works and all is well</strong><br>
 		  return finalCarOrder3;<br>
 		  }</p>
 		

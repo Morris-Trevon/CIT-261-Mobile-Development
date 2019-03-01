@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CIT 261 - Fluency Demo Site</title>
+	<script type="text/javascript" src="Scripts/formSaveUser.js"></script>
+	<!-- Bootstrap -->
+    <link href="css/bootstrap-4.0.0x.css" rel="stylesheet">
+  </head>
+  <body onLoad="unRavelStorage()">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+       <a class="navbar-brand" href="#">Navbar</a>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+             <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+             </li>
+             <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fluency Topics</a>
+				 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			     <a class="dropdown-item" href="formwithJS.html">Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays</a>
+			     </div>
+             </li>
+			  <li class="nav-item active">
+                <a class="nav-link" href="contact.html">Contact <span class="sr-only">(current)</span></a>
+             </li>
+             <!--
+             <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+             </li>-->
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+       </div>
+    </nav>
+
+    <div class="jumbotron jumbotron-fluid text-center">
+       <h1 class="display-4">Local Storage Retrieving on Separate Page</h1>
+		<p class="lead">This page demonstrates fluency in the above topics. <br>
+		<b>View your saved profile!</b></p>
+		
+		<table width="400" border="1" align="center">
+		  <tbody>
+		    <tr>
+		      <td align="left" width="150">Name:</td>
+		      <td align="left" width:"250"><div id="fullNameP">&nbsp;</div></td>
+	        </tr>
+		    <tr>
+		      <td align="left" width="150">Age:</td>
+		      <td align="left" width:"250"><div id="ageP">&nbsp;</div></td>
+	        </tr>
+		    <tr>
+		      <td align="left" width="150">Marital Status:</td>
+		      <td align="left" width:"250"><div id="maritalP">&nbsp;</div></td>
+	        </tr>
+		    <tr>
+		      <td align="left" width="150">Cars Bought:</td>
+		      <td align="left" width:"250"><div id="carsOwnedP">&nbsp;</div></td>
+	        </tr>
+		    <tr>
+		      <td>&nbsp;</td>
+		      <td>&nbsp;</td>
+	        </tr>
+	      </tbody>
+	  </table>
+		<p class="lead">&nbsp;</p>
+		<p class="lead">&nbsp;</p>
+		<p class="lead">&nbsp;</p>
+	 <div id="loadProfile"></div>
+	
+	<div id="output3"> </div>
+	<div id="buttonHolder"> </div>
+	
+		
+</div>
+
+		
+	  
+		</p>
+	  
+       <br>
+       <hr>
+       <div class="row">
+          <div class="text-center col-lg-6 offset-lg-3">
+             <h4>Footer </h4>
+             <p>Copyright &copy; 2019 &middot; All Rights Reserved</p>
+          </div>
+       </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed --> 
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap-4.0.0.js"></script>
+  </body>
+</html>

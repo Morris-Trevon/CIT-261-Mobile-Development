@@ -1,0 +1,138 @@
+.carmart{
+	width: 100%;
+	max-height: 500px;
+	margin-bottom: 50px;
+	text-align: center;
+	display: inline-block;
+		
+}
+
+.cars {
+	
+	width: 20%;
+	height: auto;
+	margin-right: 10px;
+	display:inline-block;
+}
+
+.cars2 {
+	
+	max-width: 100%;
+	max-height: auto;
+	margin-right: 10px;
+	display:inline-block;
+}
+
+.cars img{
+	
+	width: 100%;
+	height: auto;
+	padding: 5px;
+	
+}
+
+.cars2 img{
+	
+	width: 15%;
+	height: auto;
+	padding: 5px;
+}
+
+#cardrive:hover .move-right{
+	
+    transform: translate(350px,0);
+    -webkit-transform: translate(350px,0); /** Chrome & Safari **/
+    -o-transform: translate(350px,0); /** Opera **/
+    -moz-transform: translate(350px,0); /** Firefox **/
+}
+
+@keyframes moveright{
+	
+	
+}
+
+#chooseCar{
+	visibility: hidden;
+}
+
+#chooseCar:hover{
+	
+	transition: background-color 6s ease-in;
+	background-color: aqua;
+	
+}
+
+#qualifyData{
+	visibility: hidden;
+}
+
+#qualifyData:hover{
+	
+	transition: background-color 6s ease-in;
+	background-color: aqua;
+	
+}
+
+#personalInformation:hover{
+	
+	transition: background-color 6s ease-in;
+	background-color: aqua;
+		
+}
+
+
+
+.ballbounce {
+  margin-top: 50px;
+  border-radius: 50%;
+  width: 300px;
+  height: auto;
+  background-color: transparent;
+  border: 0px solid #999;
+  
+}
+
+.jump{
+  animation-name: bounce;	
+  animation: bounce 1s infinite alternate;
+  -webkit-animation: bounce 1s infinite alternate;
+	
+}
+
+.roll{
+	
+	animation-name: rotation;
+	animation: rotation 5s infinite alternate;
+	-webkit-animation: rotation 5s infinite alternate;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-40px);
+  }
+}
+@-webkit-keyframes bounce {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-40px);
+  }
+}
+
+//Set the rotation animations
+
+@keyframes rotation {
+  50% {
+  transform: rotate(360deg);
+  } 
+}
+
+@-webkit-keyframes rotation {
+  50% {
+  transform: rotate(360deg);
+  } 
+}

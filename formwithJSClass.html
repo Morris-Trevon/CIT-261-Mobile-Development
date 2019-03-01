@@ -7,8 +7,7 @@
     <title>CIT 261 - Fluency Demo Site</title>
 	<script type="text/javascript" src="Scripts/formSaveUser.js"></script>
 	<!-- Bootstrap -->
-    <link href="css/bootstrap-4.0.0.css" rel="stylesheet">
-
+    <link href="css/bootstrap-4.0.0x.css" rel="stylesheet">
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -43,13 +42,16 @@
     </nav>
 
     <div class="jumbotron jumbotron-fluid text-center">
-       <h1 class="display-4">Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays</h1>
-		<p class="lead">This page demonstrates fluency in the above topics. <br><b>Enter 5 entries!</b></p>
+       <h1 class="display-4">Local Storage Storing and Retrieving, Dom Manipulation, CSS3 Transitions, HTML 5 Tags Dynamic Video with audio and Canvas, Manipulating HTML and CSS Class Properties, JavaScript Events, JavaScript Objects, Arrays and more</h1>
+		<p class="lead">This page demonstrates fluency in the above topics. <br><b>Enter Your details to see if your qualified to buy an exotic car!</b></p>
        
 		<p>
-  
+			
+			<!--Div to capture Personal Information-->
+			
+  <div id="personalInformation" class="personalInformation" name="personalInformation">
 <form action="#" id="personnelForm" name="personnelForm" method="post">
-  
+  <h1>Driver Information</h1>
   <table align="center" width="363" border="1">
     <tbody>
       <tr>
@@ -74,17 +76,99 @@
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td><input type="button" name="submit" id="submit" value="Submit" onClick="userProfile.submitCatch()">
+        <td><input type="button" name="Continue1" id="Continue1" value="Continue" onClick="submitDriver()">
         </td>
       </tr>
     </tbody>
   </table>
-  
-  
+  <p>&nbsp;</p>
 </form>
-		</p>
-	  <div id="output">
+</div>
+		
+<div id="output">
 	  </div>
+
+		<!--DIV to capture qualification Data-->
+		
+<div id="qualifyData" name="qualifyData" class="qualifyData">
+<h1>Driver Qualificatiion</h1>
+	<p>Have you ever owned a Ferrari, Benz, Porsche, or Bugatti?</p>
+	<label>Yes</label><input type="radio" name="qualConf" id="qualConfYes" value="Yes"><label>No</label> <input type="radio" name="qualConf" id="qualConfNo" value="No"> <button onclick="quickCheck('Porsche')"  >Confirm</button> 
+      
+	
+<form action="#" id="qualForm" name="qualForm" method="post">
+  
+  
+	<table align="center" width="363" border="1">
+    <tbody>
+      <tr>
+        <td><label>Tax Number</label></td>
+        <td><input type="text" name="taxNum" id="taxNum"></td>
+      </tr>
+      
+        <td>Car Previously Owned</td>
+        <td><label for="superCar">Select:</label>
+          <select name="superCar" id="superCar">
+			 <option value="Porsche" selected="selected">Porsche</option>
+  			 <option value="Ferrari">Ferrari</option>
+			 <option value="Buggati">Buggati</option>
+			 <option value="Benz">Benz</option>
+			 <option value="All">All</option>
+         </select></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><input type="button" name="submit" id="submit" value="Submit" onClick="driverQual()">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+   
+</form></div>
+		
+	  <div id="output2">  </div>
+		
+		<!--Div to choose car based on your qualification-->
+	
+		
+<div id="chooseCar" class="chooseCar" name="chooseCar">
+		<div class="videoPlayer">
+			
+			 <video controls id="theVideo" width="320" height="240" loop>
+  				
+			</video> 
+		
+	
+		<p>Review the cars by watching a video or go straight to your ordering Process</p>
+		<button id="benzClick" onclick="runVideo('benz.mp4')"  >Play Benz</button><button id="bugattiClick" onclick="runVideo('bugatti.mp4')"  >Play Bugatti</button><button id="porscheClick" onclick="runVideo('porsche.mp4')"  >Play Porsche</button><button id="ferrariClick" onclick="runVideo('ferrari.mp4')">Play Ferrari</button>
+			<br><br>
+		</div>
+	
+		<h1>Select The Car Of Your Choice</h1>
+		
+		<div class="cars" id="bugatti" name="bugatti"><p>Bugatti</p><img alt="bugatti" src="images/cars/bugatti.png"><button onclick="carChoice('Bugatti')"  >Order</button> </div>
+		<div class="cars" id="ferrari" name="ferrari"><p>Ferrari</p><img alt="ferrari" src="images/cars/ferrari.png"><button onclick="carChoice('Ferrari')"  >Order</button> </div>
+		<div class="cars" id="porsche" name="porsche"><p>Porsche</p><img alt="porsche" src="images/cars/porsche.png"><button onclick="carChoice('Porsche')"  >Order</button> </div>
+		<div class="cars" id="benz" name="benz"><p>Benz</p><img alt="benz" src="images/cars/benz.png"><button onclick="carChoice('Benz')">Order</button> </div>
+		
+</div>
+	
+	<div id="output3"> </div>
+	<div id="signatureCanvas"></div>
+	<div id="buttonHolder"> </div>
+	<br>
+	<br>
+	
+	<!--<canvas id="signatureCanvas" width="490" height="220"></canvas> Some browsers dont support it-->
+	
+		
+</div>
+
+		
+	  
+		</p>
+	  
        <br>
        <hr>
        <div class="row">

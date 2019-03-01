@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CIT 261 - Fluency Demo Site</title>
+	<script type="text/javascript" src="Scripts/animationtrigger.js"></script>
+	<!-- Bootstrap -->
+    <link href="css/bootstrap-4.0.0.css" rel="stylesheet">
+	<link href="css/animations.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+       <a class="navbar-brand" href="#">Navbar</a>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+             <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+             </li>
+             <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fluency Topics</a>
+				 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			     <a class="dropdown-item" href="formwithJS.html">Object Creation Functions, Inheritance, Properties, Methods, Instantiation</a>
+			     </div>
+             </li>
+			  <li class="nav-item active">
+                <a class="nav-link" href="contact.html">Contact <span class="sr-only">(current)</span></a>
+             </li>
+             <!--
+             <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+             </li>-->
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+       </div>
+    </nav>
+
+    <div class="jumbotron jumbotron-fluid text-center">
+      <h1 class="display-4">Designing, Defining, and Triggering CSS3 Animations without Custom Libraries</h1>
+		<p class="lead">This page demonstrates fluency in the above topics.		</p>
+		<p>Javascrip Libraries were used to do animations to various web objects when CSS could not. A few years ago Animated Gifs, Adobe Flash and Javascript were the standard of doing animation and multimedia video and audio. However when HTML5 evolved and included multimedia support CSS3 also evolved to support animation and more. Adobe Flash was heavy on the browser and required another plugin while JavaScript was not for beginners required advanced knowledge, but pure CSS3 is run directly from the browser requiring no other plugin and easy to code for a novice. If your still curious about JavaScript libraries <a href="https://threejs.org/" target="_blank">threejs.org</a> has some cool animation using JavaScript, but this page will not demonstrate any of those. Let us begin!</p>
+		<h1>Designing CSS3 Animations</h1>
+		<p>Before designing any animation it should make sense and not mess up your content due to not making sense.</p>
+		<p>The following code in CSS will design the animation to apply to a HTML entity.</p>
+		<p>@keyframes bounce { <strong>// We first create the name</strong><br>
+from {<br>
+transform: translateY(0px); <strong>// We now tell the animation from where to transform</strong><br>
+}<br>
+to {<br>
+transform: translateY(-15px); <strong>// We then tell it where to stop</strong><br>
+}<br>
+} <strong>// Transforming the object simply means changing the state</strong><br>
+@-webkit-keyframes bounce { <strong>// Do the exact same thing but add -webkit- to ensure browser compatibility</strong><br>
+from {<br>
+transform: translateY(0px);<br>
+}<br>
+to {<br>
+transform: translateY(-15px);<br>
+}<br>
+}</p>
+		<p>First we will place a common image with a simple animation.</p>
+		<p>.ballbounce { <strong>// This sets the properties of the ball</strong><br>
+margin-top: 50px;<br>
+border-radius: 50%;<br>
+width: 300px;<br>
+height: auto;<br>
+background-color: transparent;<br>
+border: 0px solid #999;<br>
+<br>
+}</p>
+		<p>.jump{ // Here we tell the class to use the animation called bounce and set the properties<br>
+		  animation-name: bounce; // specify the name [optional]<br>
+		  animation: bounce 1s infinite alternate; <strong>// you can set the name, time, how long, and alternate so it reverses the animation</strong><br>
+		  -webkit-animation: bounce 1s infinite alternate;<br>
+  <br>
+	  }</p>
+		<p><img class="ballbounce jump" id="ballbounce" src="images/Animations/Football-Soccer-Ball-PNG.png" width="300" height="auto" alt=""/></p>
+		
+	  <p>As you can see a ball bouncing makes sense.</p>
+	  <h2>Triggering Animations</h2>
+	  <p>&nbsp;
+		
+		What if we could make it not make sense by triggering a reaction?</p>
+		
+		
+	  <p>@keyframes rotation { <strong>//New animation called rotation</strong><br>
+	    50% {<br>
+	    transform: rotate(360deg); <strong>//New transform method called rotate</strong><br>
+	    } <br>
+      }</p>
+	  <p>@-webkit-keyframes rotation {<br>
+	    50% {<br>
+	    transform: rotate(360deg);<br>
+	    } <br>
+	    }</p>
+	  <p>We also need a class to load this into. I will explain why shortly.</p>
+	  <p>.roll{ <strong>// The class called roll is not assigned to any html element</strong><br>
+ animation-name: rotation;<br>
+animation: rotation 5s infinite alternate;<br>
+-webkit-animation: rotation 5s infinite alternate;<br>
+}</p>
+	  <p><strong>// To get the button to work We have to use Javascript</strong></p>
+	  <p>function disruptAnimation(){<br>
+        <strong> //Pull the HTML ID into JavaScript to be toggled</strong><br>
+var balledit = document.getElementById(&quot;ballbounce&quot;);<br>
+<strong> //Use the classList.toggle function to pull from the CSS file the roll animation class</strong><br>
+balledit.classList.toggle('roll');<br>
+ }<br>
+	    Ok click the button, one click will change it, and the other will revert it as this is a toggle script. It toggles between first class and the changed class.<br>
+      </p>
+	  <button onClick="disruptAnimation()">Click Me</button>
+       <p>&nbsp;</p>
+       <p>Transition Triggers</p>
+       <div class="cars2" id="cars2"><img src="images/cars/lambodrive.png" class="cardrive moveright" id="cardrive" width="2190" height="732" alt=""/></div>
+       <p>To see this without the explanation click <a href="animationWithCSSandTriggers2.html">here</a> and to learn more about CSS3 animations click <a href="https://litmus.com/blog/understanding-css-animations-in-email-transitions-and-keyframe-animations" target="_blank">here</a>.</p>
+       <hr>
+      <div class="row">
+          <div class="text-center col-lg-6 offset-lg-3">
+             <h4>Footer </h4>
+             <p>Copyright &copy; 2019 &middot; All Rights Reserved</p>
+          </div>
+       </div>
+       
+    </div>
+
+	   
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed --> 
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap-4.0.0.js"></script>
+  </body>
+</html>
