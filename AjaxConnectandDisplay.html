@@ -5,11 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CIT 261 - Fluency Demo Site</title>
-	<script type="text/javascript" src="Scripts/localStorage.js"></script>
+	<script type="text/javascript" src="Scripts/AjaxRequest.js"></script>
 	<!-- Bootstrap -->
     <link href="css/bootstrap-4.0.0.css" rel="stylesheet">
-	<link href="css/animations.css" rel="stylesheet">
-
+	
+	    
+	  
+	  
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -44,20 +46,23 @@
     </nav>
 
     <div class="jumbotron jumbotron-fluid text-center">
-      <h1 class="display-4">Designing, Defining, and Triggering CSS3 Animations without Custom Libraries</h1>
-		<p class="lead">This page demonstrates fluency in the above topics. </p>
+      <h1 ng-bind="wikiViewerCtrl.titleToRender" title="CIT 261 AJAX - Using XMLHTTPRequest to Consume a JSON Web Service" data-tid="wiki-viewer-title">AJAX - Using XMLHTTPRequest to Consume a JSON Web Service</h1>
+      <p class="lead">This page demonstrates fluency in the above topics. </p>
 		<p class="lead">In the code below we are capturing time, but we not only want to catch it we want to also tell it. in real time.</p>
-		<h1>Designing CSS3 Animations</h1>
-		<p>Before designing any animation it should make sense and not mess up your content due to not making sense.</p>
-		<p>First we will place a common image with a simple animation.</p>
-		<p><img class="ballbounce" src="images/Animations/Football-Soccer-Ball-PNG.png" width="300" height="auto" alt=""/></p>
-		
-	  <p>As you can see a ball bouncing makes sense.</p>
-		
-		What if we could make it not make sense by triggering a reaction?
-		
-		<br><button onClick="disruptAnimation()">Click me</button>
-       <hr>
+		<h1>Convert any String to text below.</h1>
+		<p>&nbsp; </p>
+		<p>
+		  <label id="engSpeech" for="textToSpeech">Enter Text To Convert To English Speech: </label>
+		  <input type="text" name="textToSpeech" id="textToSpeech">
+		  <input type="button" name="Continue1" id="Continue1" value="Convert to Speech" onClick="textToSpeechCall()">
+	  </p>
+	  <p>This is not a translator it is just to demonstrate pronunciation differences.</p>
+		<p>
+		  <label id="korSpeech" for="textToSpeechKr">Enter Text To Convert To Korean Accent Speech: </label>
+		  <input type="text" name="textToSpeechKr" id="textToSpeechKr">
+		  <input type="button" name="Continue2" id="Continue2" value="Convert to Korean" onClick="textToSpeechKor()">
+	  </p>
+	   <hr>
       <div class="row">
           <div class="text-center col-lg-6 offset-lg-3">
              <h4>Footer </h4>
