@@ -48,20 +48,30 @@
     <div class="jumbotron jumbotron-fluid text-center">
       <h1 ng-bind="wikiViewerCtrl.titleToRender" title="CIT 261 AJAX - Using XMLHTTPRequest to Consume a JSON Web Service" data-tid="wiki-viewer-title">AJAX - Using XMLHTTPRequest to Consume a JSON Web Service</h1>
       <p class="lead">This page demonstrates fluency in the above topics. </p>
-		<p class="lead">In the code below we are capturing time, but we not only want to catch it we want to also tell it. in real time.</p>
-		<h1>Convert any String to text below.</h1>
-		<p>&nbsp; </p>
-		<p>
-		  <label id="engSpeech" for="textToSpeech">Enter Text To Convert To English Speech: </label>
-		  <input type="text" name="textToSpeech" id="textToSpeech">
-		  <input type="button" name="Continue1" id="Continue1" value="Convert to Speech" onClick="textToSpeechCall()">
-	  </p>
-	  <p>This is not a translator it is just to demonstrate pronunciation differences.</p>
-		<p>
-		  <label id="korSpeech" for="textToSpeechKr">Enter Text To Convert To Korean Accent Speech: </label>
-		  <input type="text" name="textToSpeechKr" id="textToSpeechKr">
-		  <input type="button" name="Continue2" id="Continue2" value="Convert to Korean" onClick="textToSpeechKor()">
-	  </p>
+		<p class="lead">In the code below we first take this 138.128.33.54 IP address and load it.</p>
+		<h1>Javascript Get IP Information</h1>
+ <br> <br>
+		
+	<p class="lead">You can also enter your own IP address and get information on it.</p>
+ <form name="ipRequestForm">
+ <input type="text" name="ipAddress"/>
+ <input type="button" id="sendIPRequest" onclick="f1()" value="test"/>
+</form>
+ <center>
+ <br> <br>
+ <table border="1">
+ 	<tr><td>statusCode :</td><td id="statusCode"></td></tr>
+ 	<tr><td>statusMessage :</td><td id="statusMessage"></td></tr>
+ 	<tr><td>ipAddress :</td><td id="ipAddress"></td></tr>
+ 	<tr><td>countryCode :</td><td id="countryCode"></td></tr>
+ 	<tr><td>countryName :</td><td id="countryName"></td></tr>
+ 	<tr><td>regionName :</td><td id="regionName"></td></tr>
+ 	<tr><td>cityName :</td><td id="cityName"></td></tr>
+ 	<tr><td>zipCode :</td><td id="zipCode"></td></tr>
+ 	<tr><td>latitude :</td><td id="latitude"></td></tr>
+ 	<tr><td>longitude :</td><td id="longitude"></td></tr>
+ 	<tr><td>timeZone :</td><td id="timeZone"></td></tr> 
+ </table>
 	   <hr>
       <div class="row">
           <div class="text-center col-lg-6 offset-lg-3">

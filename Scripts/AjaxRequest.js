@@ -1,71 +1,103 @@
 // JavaScript Document
-"use strict";
 
-function textToSpeechCall(){
-
-	var src = document.getElementById('textToSpeech').value;
-
-//JSON object passed into a string assigned to a variable called VoiceRSS
-	
-  VoiceRSS.speech({
-            key: 'a50f29049873445eaff96472e5b26ac0',
-            src: src,
-            hl: 'en-us',
-            r: 0, 
-            c: 'mp3',
-            f: '44khz_16bit_stereo',
-            ssml: false
-        });
+// This code will automatically pull the data from an Ip Address specified from the string
+var HttpClient = function() {
+ 	this.get = function(aUrl, aCallback) {
+ 	var anHttpRequest = new XMLHttpRequest();
+ 	
+	anHttpRequest.onreadystatechange = function() { 
+ 	if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+ 		aCallback(anHttpRequest.responseText);
+ 	}
+ 	
+	anHttpRequest.open( "GET", aUrl, true ); 
+ 	anHttpRequest.send( null ); 
+ 	}
 }
 
-function textToSpeechKor(){
+//URL for the API to request information from JSON file with my personal API key that I had to register to www.ipinfodb.com
+var theurl='http://api.ipinfodb.com/v3/ip-city/?key=bb2eba945cc62a91147eb437555509254bb2e7a8dd3a910d4fba5f2c013c2521&format=json&ip=138.128.33.54';
+var client = new HttpClient();
 
-	var src = document.getElementById('textToSpeechKr').value;
+client.get(theurl, function(response) { 
+ 	var response1 = JSON.parse(response);
+ 	// alert(response);
+ 
+	document.getElementById("statusCode").innerHTML = response1.name + ", " + response1.statusCode;
+ 
+	document.getElementById("statusCode").innerHTML = response1.statusCode;
+ 
+	document.getElementById("statusMessage").innerHTML = response1.statusMessage;
+ 
+	document.getElementById("ipAddress").innerHTML = response1.ipAddress;
+ 
+	document.getElementById("countryCode").innerHTML = response1.countryCode;
+ 
+	document.getElementById("countryName").innerHTML = response1.countryName;
+ 
+	document.getElementById("regionName").innerHTML = response1.regionName;
+ 
+	document.getElementById("cityName").innerHTML = response1.cityName;
+ 
+	document.getElementById("zipCode").innerHTML = response1.zipCode;
+ 
+	document.getElementById("latitude").innerHTML = response1.latitude;
+ }); 
 
-//JSON object passed into a string assigned to a variable called VoiceRSS
+
+// This code will accept the value from ipAddress and request information on it
+window.onload = function() {
 	
-  VoiceRSS.speech({
-            key: 'a50f29049873445eaff96472e5b26ac0',
-            src: src,
-            hl: 'ko-kr',
-            r: 0, 
-            c: 'mp3',
-            f: '44khz_16bit_stereo',
-            ssml: false
-        });
+		document.getElementById("sendIPRequest").onclick = function runApiScript() {
+		
+			var ipAddress = document.forms["ipRequestForm"]["ipAddress"].value;
+			//URL for the API to request information from JSON file with my personal API key that I had to register to www.ipinfodb.com
+			var Url = "http://api.ipinfodb.com/v3/ip-city/?key=bb2eba945cc62a91147eb437555509254bb2e7a8dd3a910d4fba5f2c013c2521&format=json&ip=" +ipAddress;
+			
+			//create the XMLHTTP Request Object
+			var xhr = new XMLHttpRequest();
+			
+			//Open the connection
+			xhr.open('GET', Url, true);
+			
+			//Send the Data
+			xhr.send();
+			
+			//Process and retrieve
+			xhr.onreadystatechange = processRequest;
+		
+			function processRequest(e) {
+	
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					// alert(xhr.responseText);
+					var response1 = JSON.parse(xhr.responseText);
+
+					document.getElementById("statusCode").innerHTML = response1.name + ", " + response1.statusCode;
+
+					document.getElementById("statusCode").innerHTML = response1.statusCode;
+
+					document.getElementById("statusMessage").innerHTML = response1.statusMessage;
+
+					document.getElementById("ipAddress").innerHTML = response1.ipAddress;
+
+					document.getElementById("countryCode").innerHTML = response1.countryCode;
+
+					document.getElementById("countryName").innerHTML = response1.countryName;
+
+					document.getElementById("regionName").innerHTML = response1.regionName;
+
+					document.getElementById("cityName").innerHTML = response1.cityName;
+
+					document.getElementById("zipCode").innerHTML = response1.zipCode;
+
+					document.getElementById("latitude").innerHTML = response1.latitude;
+
+					document.getElementById("longitude").innerHTML = response1.longitude;
+
+					document.getElementById("timeZone").innerHTML = response1.timeZone;
+				}
+			}
+		}
 }
-
-		var VoiceRSS={
-
-				speech:function(e){
-					this._validate(e),
-					this._request(e)
-				},
-				_validate:function(e){
-					if(!e)throw"The settings are undefined";if(!e.key)throw"The API key is undefined";if(!e.src)throw"The text is undefined";if(!e.hl)throw"The language is undefined";
-					if(e.c&&"auto"!=e.c.toLowerCase()){var a=!1;switch(e.c.toLowerCase()){case"mp3":a=(new Audio).canPlayType("audio/mpeg").replace("no","");break;case"wav":a=(new Audio).canPlayType("audio/wav").replace("no","");
-							break;
-						case"aac":a=(new Audio).canPlayType("audio/aac").replace("no","");
-							break;
-						case"ogg":a=(new Audio).canPlayType("audio/ogg").replace("no","");
-							break;
-						case"caf":a=(new Audio).canPlayType("audio/x-caf").replace("no","")}
-													   if(!a)throw"The browser does not support the audio codec "+e.c}
-				},
-				_request:function(e){
-					var a=this._buildRequest(e),t=this._getXHR();
-					   t.onreadystatechange=function(){
-						   if(4==t.readyState&&200==t.status){
-							   if(0==t.responseText.indexOf("ERROR"))
-								   throw t.responseText; 
-							   new Audio(t.responseText).play()
-						   }
-						},
-						t.open("POST","https://api.voicerss.org/",!0),
-						t.setRequestHeader("Content-Type","application/x-www-form-urlencoded; charset=UTF-8"),
-						t.send(a)},
-						_buildRequest:function(e){var a=e.c&&"auto"!=e.c.toLowerCase()?e.c:this._detectCodec();
-		     return"key="+(e.key||"")+"&src="+(e.src||"")+"&hl="+(e.hl||"")+"&r="+(e.r||"")+"&c="+(a||"")+"&f="+(e.f||"")+"&ssml="+(e.ssml||"")+"&b64=true"}, _detectCodec:function(){var e=new Audio;
-			 return e.canPlayType("audio/mpeg").replace("no","")?"mp3":e.canPlayType("audio/wav").replace("no","")?"wav":e.canPlayType("audio/aac").replace("no","")?"aac":e.canPlayType("audio/ogg").replace("no","")?"ogg":e.canPlayType("audio/x-caf").replace("no","")?"caf":""},_getXHR:function(){try{return new XMLHttpRequest}catch(e){}try{return new ActiveXObject("Msxml3.XMLHTTP")}catch(e){}try{return new ActiveXObject("Msxml2.XMLHTTP.6.0")}catch(e){}try{return new ActiveXObject("Msxml2.XMLHTTP.3.0")}catch(e){}try{return new ActiveXObject("Msxml2.XMLHTTP")}catch(e){}try{return new ActiveXObject("Microsoft.XMLHTTP")}catch(e){}throw"The browser does not support HTTP request"}};
 
 //END
