@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CIT 261 - Fluency Demo Site</title>
+	  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="Scripts/screenRotation.js"></script>
+	<!-- Bootstrap -->
+    <link href="css/bootstrap-4.0.0.css" rel="stylesheet">
+	<link href="css/weatherstyle.css" rel="stylesheet">
+	    
+	  
+	  
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+       <a class="navbar-brand" href="#">Navbar</a>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+             <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+             </li>
+             <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fluency Topics</a>
+				 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			     <a class="dropdown-item" href="formwithJS.html">Object Creation Functions, Inheritance, Properties, Methods, Instantiation</a>
+			     </div>
+             </li>
+			  <li class="nav-item active">
+                <a class="nav-link" href="contact.html">Contact <span class="sr-only">(current)</span></a>
+             </li>
+             <!--
+             <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+             </li>-->
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+       </div>
+    </nav>
+
+    <div class="jumbotron jumbotron-fluid text-center">
+      <h1 ng-bind="wikiViewerCtrl.titleToRender" title="CIT 261 AJAX - Using XMLHTTPRequest to Consume a JSON Web Service" data-tid="wiki-viewer-title">
+        <button id="homeClick" onClick="detectClick('home')">Home</button> 
+        <button id="mapClick" onClick="detectClick('map')">Map</button> 
+        <button id="mediaClick" onClick="detectClick('media')">Media</button> 
+        <button id="contactClick" onClick="detectClick('contact')">Contact</button>
+      </h1>
+	  <div id="homeContent">
+      <h1>Weather App for Kid Researchers</h1>
+		<p>Learn all about different weather conditions and how to identify them on a map.<br>
+		  Click the Topic you want to learn about. Check the map and see how 
+		  <br>
+		</p>
+		<div class="toggler"><h2>What is Temperature?</h2> 
+		  <div><iframe width="560" height="315" src="https://www.youtube.com/embed/EPAct_QsGKg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+	    </div>
+		  
+		  <div class="toggler"><h2>What is Precipitation?</h2>
+		  <div><iframe width="560" height="315" src="https://www.youtube.com/embed/SesRrocIFtc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+		  </div>
+		  
+		  <div class="toggler"><h2>What are Clouds?</h2>
+		  <div><iframe width="560" height="315" src="https://www.youtube.com/embed/DigBbR3FeP8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+		  </div>
+		  
+		  <div class="toggler"><h2>What is Air Pressure?</h2>
+		  <div><iframe width="560" height="315" src="https://www.youtube.com/embed/jmQ8FWnM0fA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+		  </div>
+		  
+		  <div class="toggler"><h2>What is Wind and how is it related to Air Pressure?</h2>
+		  <div><iframe width="560" height="315" src="https://www.youtube.com/embed/RzSqhrn2dDM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+		  </div>
+		  
+	  </div>
+		<div id="mediaPlayer">
+		<h2>Learn about what to do in bad weather</h2>
+			<p>This is a playlist so press next or return which can be found at the bottom of the video window.</p>
+			<p>As you learn share with your friends, and watch them over and over again to become a Weather Warrior.</p>
+		 <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLki90Aw2GjdeFFwqlQXOaMy6UKihs0TUc&hl=en_US" frameborder="0" allowfullscreen></iframe> 
+		</div>
+		<br>
+		<iframe id="weatherMap" src="apps/leaflet-owm.html" width="800px" height="600px" scrolling="yes"></iframe>
+		<div id="contactMe">
+			<h1>Contact Us</h1>
+			<strong>Name of Student</strong><br>
+			Trevon Morris<br>
+			<strong>Email</strong><br>
+			mor15083@byui.edu<br>
+			<strong>Phone/ WhatsApp</strong><br>
+			(876) 503-1295 <br></div>
+ 
+
+		  <div id="map"></div>
+ 
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    <script src="../leaflet/leaflet-src.js"></script>
+    <script src="js/leaflet-owm.js"></script>
+    <script src="js/iconLayer.js"></script>
+    <script>
+        var providers = {};
+        providers['OSM'] = {
+            title: 'OSM',
+            icon: 'img/layers-osm.png',
+            layer: L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                maxZoom: 18,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            })
+        };
+        providers['Satellite'] = {
+            title: 'MODIS',
+            icon: 'img/layers-satellite.png',
+            layer: L.tileLayer('http://{s}.sat.owm.io/sql/{z}/{x}/{y}?select=b1,b4,b3&from=modis&order=last&color=modis&appid=d22d9a6a3ff2aa523d5917bbccc89211', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="http://owm.io">VANE</a>'
+            })
+        };
+    </script>
+    <script>
+        var map = L.map('map').setView([60, 50], 3);
+        
+        //http://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=d9cfe451d5a775abaf178aec4951b4b0
+        var Temp = L.tileLayer('http://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=d22d9a6a3ff2aa523d5917bbccc89211', {
+            maxZoom: 18,
+            attribution: '&copy; <a href="http://owm.io">VANE</a>',
+            id: 'temp'
+        }),
+        Precipitation = L.tileLayer('http://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=d22d9a6a3ff2aa523d5917bbccc89211', {
+            maxZoom: 18,
+            attribution: '&copy; <a href="http://owm.io">VANE</a>'
+        }),
+        Wind = L.tileLayer('http://tile.openweathermap.org/map/wind_new/{z}/{x}/{y}.png?appid=d22d9a6a3ff2aa523d5917bbccc89211', {
+            maxZoom: 18,
+            attribution: '&copy; <a href="http://owm.io">VANE</a>'
+        }),
+        Pressure = L.tileLayer('http://tile.openweathermap.org/map/pressure_new/{z}/{x}/{y}.png?appid=d22d9a6a3ff2aa523d5917bbccc89211', {
+            maxZoom: 18,
+            attribution: '&copy; <a href="http://owm.io">VANE</a>'
+        }),
+        Clouds = L.tileLayer('http://tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png?appid=d22d9a6a3ff2aa523d5917bbccc89211', {
+            maxZoom: 18,
+            attribution: '&copy; <a href="http://owm.io">VANE</a>'
+        });
+        var owm = new L.OWMLayer({key: 'b1b15e88fa797225412429c1c50c122a1'});
+        map.addLayer(owm);
+        Temp.addTo(map);
+        var overlays = {"Temperature": Temp, "Precipitation": Precipitation, "Clouds": Clouds, "Pressure": Pressure, "Wind": Wind};
+        L.control.layers(overlays, null, {collapsed:false}).addTo(map);
+        var layers = [];
+            for (var providerId in providers) {
+                layers.push(providers[providerId]);
+            }
+        L.control.iconLayers(layers).addTo(map);
+    </script>
+
+
+	   <hr>
+      <div class="row">
+          <div class="text-center col-lg-6 offset-lg-3">
+             <h4>Footer </h4>
+             <p>Copyright &copy; 2019 &middot; All Rights Reserved</p>
+          </div>
+       </div>
+       
+    </div>
+
+	   
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed --> 
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap-4.0.0.js"></script>
+  </body>
+</html>
